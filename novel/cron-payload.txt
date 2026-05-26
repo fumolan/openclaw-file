@@ -1,0 +1,8 @@
+此文件用于更新 cron 任务的 payload message。请在主会话中用 cron update 将此文件内容设置为 payload.message。
+
+当前问题：任务 81924fbc-96b3-4a7b-9d4f-15fe1f40043f 的 payload.message 只是原始指令文本（"动作：cron add..."），没有实际的续写上下文，导致每次运行都失败（已连续失败4次）。
+
+需要在主会话执行：
+cron update --jobId 81924fbc-96b3-4a7b-9d4f-15fe1f40043f --payload.message "（续写上下文.md 的完整内容）"
+
+或者删除重建任务。
